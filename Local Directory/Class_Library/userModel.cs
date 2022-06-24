@@ -1,24 +1,19 @@
-
-
-namespace user;
+namespace models;
 
 public class userModel {
-    private string? userID {get; set;}
 
-    private string? userName {get; set;}
+    private string userID {get; set;} = null!;
 
-    private string? password {get; set;}
+    private string userName {get; set;} = null!;
 
-    public enum role {
-        customer, employee, admin
-    }
-    private role Role {get; set;}
+    private string password {get; set;} = null!;
+    private string role {get; set;} = null!;
 
-    public void User (string userID, string userName, string password, role Role){
+    public void User (string userID, string userName, string password, string role){
         this.userID = userID;
         this.userName = userName;
         this.password = password;
-        this.Role = Role;
+        this.role = role;
     }
 
 
