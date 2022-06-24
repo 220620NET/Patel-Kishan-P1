@@ -1,3 +1,6 @@
+using customExceptions;
+
+
 namespace models;
 
 public class userModel {
