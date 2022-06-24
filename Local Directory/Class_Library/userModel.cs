@@ -14,5 +14,12 @@ public class userModel {
     }
     private role Role {get; set;}
 
+    public void User (string userID, string userName, string password, role Role){
+        this.userID = userID;
+        this.userName = userName;
+        this.password = password;
+        this.Role = Role;
+    }
+
 
 }
