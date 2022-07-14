@@ -3,7 +3,7 @@ using customExceptions;
 
 namespace models;
 
-public class userModel {
+public class User {
 
     private string userID {get; set;} = null!;
 
