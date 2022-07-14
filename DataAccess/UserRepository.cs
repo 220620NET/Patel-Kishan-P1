@@ -112,7 +112,6 @@ public User createUser(User newUser)
 
             userTable.Rows.Add(newUser);
 
-            // SqlCommand cmd = new SqlCommand("Insert into PokeTrainer (trainer_name, trainer_money, num_badges) values (@name, @money, @badges");
             SqlCommandBuilder cmdbuilder = new SqlCommandBuilder(userAdapter);
 
             SqlCommand insertCommand = cmdbuilder.GetInsertCommand();
