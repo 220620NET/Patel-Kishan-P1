@@ -1,12 +1,12 @@
-using models;
+using Models;
 using Microsoft.Data.SqlClient;
 using CustomExceptions;
 using System.Data;
 
 namespace DataAccess;
-public User GetAllUsers()
+public List<User> GetAllUsers()
 {
-    User Users = new User();
+    List<User> Users = new List<User>();
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();

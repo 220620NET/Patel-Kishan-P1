@@ -1,4 +1,4 @@
-using models;
+using Models;
 using Microsoft.Data.SqlClient;
 using CustomExceptions;
 using System.Data;
@@ -37,9 +37,9 @@ public ticket GetReimbursmentById(int id)
     reader.Close();
     conn.Close();
 }
-public ticket GetReimbursmentsByAuthor(string Author)
+public List<ticket> GetReimbursmentsByAuthor(string Author)
 {
-    ticket foundticket;
+    List<ticket> Tickets = new List<ticket>();
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
@@ -52,7 +52,7 @@ public ticket GetReimbursmentsByAuthor(string Author)
 
     while(reader.Read())
     {
-        return new ticket
+        Tickets.Add(new ticket
         {
             id = (int)reader["id"],
             author = (string)reader["author_fk"],
@@ -61,17 +61,18 @@ public ticket GetReimbursmentsByAuthor(string Author)
             status = (string)reader["status"],
             amount = (decimal)reader["amount"]
 
-        };
+        });
     }
 
     throw new RecordNotFoundException("Could not find the User with this Author");
 
     reader.Close();
     conn.Close();
+    return Tickets;
 }
-public ticket GetReimbursmentsByStatus(string Status)
+public List<ticket> GetReimbursmentsByStatus(string Status)
 {
-    ticket foundticket;
+    List<ticket> Tickets = new List<ticket>();
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
@@ -84,7 +85,7 @@ public ticket GetReimbursmentsByStatus(string Status)
 
     while(reader.Read())
     {
-        return new ticket
+        Tickets.Add(new ticket
         {
             id = (int)reader["id"],
             author = (string)reader["author_fk"],
@@ -93,13 +94,14 @@ public ticket GetReimbursmentsByStatus(string Status)
             status = (string)reader["status"],
             amount = (decimal)reader["amount"]
 
-        };
+        });
     }
 
     throw new RecordNotFoundException("Could not find the User with this Status");
 
     reader.Close();
     conn.Close();
+    return Tickets;
 }
 
 public ticket CreateReimbursment(User newTicket)
@@ -134,16 +136,24 @@ public ticket CreateReimbursment(User newTicket)
         return newTicketToRegister;
 }
 
-public ticket UpdateReimbursmentresolver(string resolver)
+public ticket UpdateReimbursmentString(string val)
 {
+    List<string> stat = new List<string>("Rejected","Approved","Pending");
     ticket foundticket;
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
 
-    SqlCommand cmd = new SqlCommand("Update project1.ticket  set resolver_fk = @fk ", conn);
+    SqlCommand cmd = new SqlCommand("Update project1.ticket set @key = @val ", conn);
     
-    cmd.Parameters.AddWithValue("@fk", resolver);
+    cmd.Parameters.AddWithValue("@val", val);
+
+    if (stat.Contains(val)){
+        cmd.Parameters.AddWithValue("@key", "status");
+    }
+    else{
+        cmd.Parameters.AddWithValue("@key", "resolver_fk");
+    }
 
     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -161,7 +171,7 @@ public ticket UpdateReimbursmentresolver(string resolver)
         };
     }
 
-    throw new RecordNotFoundException("Could not find the User with this ");
+    throw new RecordNotFoundException("Could not find the User");
 
     reader.Close();
     conn.Close();
@@ -174,9 +184,9 @@ public ticket UpdateReimbursmentAmount(decimal amount)
 
     conn.Open();
 
-    SqlCommand cmd = new SqlCommand("Update project1.ticket set amount = @fk ", conn);
+    SqlCommand cmd = new SqlCommand("Update project1.ticket set amount = @val ", conn);
     
-    cmd.Parameters.AddWithValue("@fk", amount);
+    cmd.Parameters.AddWithValue("@val", amount);
 
     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -194,7 +204,7 @@ public ticket UpdateReimbursmentAmount(decimal amount)
         };
     }
 
-    throw new RecordNotFoundException("Could not find the User with this ");
+    throw new RecordNotFoundException("Could not find the User");
 
     reader.Close();
     conn.Close();

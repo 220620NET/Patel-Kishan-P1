@@ -1,0 +1,5 @@
+C:\Users\kp289\Desktop\Revature\Patel-Kishan-P1\obj\Debug\net6.0\main.csproj.AssemblyReference.cache
+C:\Users\kp289\Desktop\Revature\Patel-Kishan-P1\obj\Debug\net6.0\main.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kp289\Desktop\Revature\Patel-Kishan-P1\obj\Debug\net6.0\main.AssemblyInfoInputs.cache
+C:\Users\kp289\Desktop\Revature\Patel-Kishan-P1\obj\Debug\net6.0\main.AssemblyInfo.cs
+C:\Users\kp289\Desktop\Revature\Patel-Kishan-P1\obj\Debug\net6.0\main.csproj.CoreCompileInputs.cache

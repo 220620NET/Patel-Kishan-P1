@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\local\\local.csproj",
-      "projectName": "local",
-      "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\local\\local.csproj",
+      "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\main.csproj",
+      "projectName": "main",
+      "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\main.csproj",
       "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\local\\obj\\",
+      "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"

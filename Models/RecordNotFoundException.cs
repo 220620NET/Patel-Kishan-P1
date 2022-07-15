@@ -1,4 +1,4 @@
-namespace CustomExceptions;
+namespace customExceptions;
 
 [System.Serializable]
 public class RecordNotFoundException : System.Exception

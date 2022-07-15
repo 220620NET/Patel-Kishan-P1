@@ -1,7 +1,7 @@
 using customExceptions;
 
 
-namespace models;
+namespace Models;
 
 public class ticket {
     private string iD {get; set;} = null!;
@@ -9,7 +9,7 @@ public class ticket {
     private string resolver {get; set;} = null!;
     private string description {get; set;} = null!;
 
-    private string Status {get; set;}
+    private string? Status {get; set;}
     private decimal amount {get; set;}
 
     public void User (string iD, string author, string resolver, string description, string Status, decimal amount){

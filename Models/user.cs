@@ -1,7 +1,7 @@
 using customExceptions;
 
 
-namespace models;
+namespace Models;
 
 public class User {
 
@@ -12,7 +12,7 @@ public class User {
     private string password {get; set;} = null!;
     private string role {get; set;} = null!;
 
-    public void User (string userID, string userName, string password, string role){
+    public User (string userID, string userName, string password, string role){
         this.userID = userID;
         this.userName = userName;
         this.password = password;

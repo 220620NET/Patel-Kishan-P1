@@ -1,11 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\main.csproj" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlclient" Version="4.1.0" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

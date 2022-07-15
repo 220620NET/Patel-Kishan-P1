@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using models;
 using Microsoft.Data.SqlClient;
 
 namespace DataAccess;

@@ -603,14 +603,14 @@
           }
         }
       },
-      "main/1.0.0": {
+      "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/main.dll": {}
+          "bin/placeholder/Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/main.dll": {}
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -2317,16 +2317,16 @@
         "version.txt"
       ]
     },
-    "main/1.0.0": {
+    "Models/1.0.0": {
       "type": "project",
-      "path": "../main.csproj",
-      "msbuildProject": "../main.csproj"
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.Data.Sqlclient >= 4.1.0",
-      "main >= 1.0.0"
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2335,11 +2335,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\DataAccess\\DataAccessLib.csproj",
-      "projectName": "DataAccessLib",
-      "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\DataAccess\\DataAccessLib.csproj",
+      "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj",
+      "projectName": "DataAccess",
+      "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2354,8 +2354,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\main.csproj": {
-              "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Local Directory\\main.csproj"
+            "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj"
             }
           }
         }
