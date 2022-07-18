@@ -5,9 +5,9 @@ using System.Data;
 
 namespace DataAccess;
 
-public ticket GetReimbursmentById(int id)
+public List<ticket> GetReimbursmentsById(int id)
 {
-    ticket foundticket;
+    List<ticket> Tickets = new List<ticket>();
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
@@ -20,7 +20,7 @@ public ticket GetReimbursmentById(int id)
 
     while(reader.Read())
     {
-        return new ticket
+        Tickets.Add(new ticket
         {
             id = (int)reader["id"],
             author = (string)reader["author_fk"],
@@ -29,13 +29,14 @@ public ticket GetReimbursmentById(int id)
             status = (string)reader["status"],
             amount = (decimal)reader["amount"]
 
-        };
+        });
     }
 
     throw new RecordNotFoundException("Could not find the User with this id");
 
     reader.Close();
     conn.Close();
+    return Tickets;
 }
 public List<ticket> GetReimbursmentsByAuthor(string Author)
 {
@@ -136,10 +137,10 @@ public ticket CreateReimbursment(User newTicket)
         return newTicketToRegister;
 }
 
-public ticket UpdateReimbursmentString(string val)
+public ticket UpdateReimbursmentString(string val,int id)
 {
     List<string> stat = new List<string>("Rejected","Approved","Pending");
-    ticket foundticket;
+    ticket ticketid = id;
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
@@ -177,9 +178,9 @@ public ticket UpdateReimbursmentString(string val)
     conn.Close();
 }
 
-public ticket UpdateReimbursmentAmount(decimal amount)
+public ticket UpdateReimbursmentAmount(decimal amount, int id)
 {
-    ticket foundticket;
+    ticket ticketid = id;
     SqlConnection conn = _connectionFactory.GetConnection();
 
     conn.Open();
