@@ -56,17 +56,17 @@ public class TicketService
             throw new IndexOutOfRangeException();
         }
     }
-    /*public List<ticket> GetReimbursmentsByUserId(int userId)
+    public List<ticket> GetReimbursmentsByUserId(int userId)
     {
         try
         {
-            return _repo.GetReimbursmentsByuserId(userId);
+            return _repo.GetReimbursmentsByAuthor(userId);
         }
         catch(ResourceNotFoundException)
         {
             throw new ResourceNotFoundException();
         }
-    }*/
+    }
     public List<ticket> GetReimbursmentsByStatus(string stat)
     {
         try

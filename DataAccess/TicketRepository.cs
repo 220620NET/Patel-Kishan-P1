@@ -40,16 +40,16 @@ public class TicketRepository : ITicketRepository
         }
         throw new IndexOutOfRangeException();
     }
-    public List<ticket> GetReimbursmentsByAuthor(string Author)
+    public List<ticket> GetReimbursmentsByAuthor(int AuthorId)
     {
         List<ticket> Tickets = new List<ticket>();
         SqlConnection conn = _connectionFactory.GetConnection();
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From ticket Where author_fk = @author", conn);
+        SqlCommand cmd = new SqlCommand("select * from project1.ticket where author_fk = (SELECT username FROM project1.userlogin WHERE userId = @id);", conn);
         
-        cmd.Parameters.AddWithValue("@author", Author);
+        cmd.Parameters.AddWithValue("@id", AuthorId);
 
         SqlDataReader reader = cmd.ExecuteReader();
 
