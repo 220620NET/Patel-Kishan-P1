@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\webapi\\WebAPI.csproj": {}
   },
   "projects": {
     "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj": {
@@ -177,14 +177,14 @@
         }
       }
     },
-    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\webapi\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\webapi\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\webapi\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"

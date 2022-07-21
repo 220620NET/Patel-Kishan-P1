@@ -28,13 +28,9 @@ public class AuthController
     {
         try
         {
-            return Results.Ok(_service.Login(UserToLogin));
+            return Results.Ok(_service.Login(UserToLogin.userName,UserToLogin.password));
         }
-        catch (InvalidCredentialException)
-        {
-            return Results.NoContent();
-        }
-        catch (InvalidCredentialException)
+        catch (InvalidCredentialsException)
         {
             return Results.BadRequest("Username or Password are incorrect");
         }

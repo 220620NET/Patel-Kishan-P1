@@ -19,7 +19,7 @@ public class TicketRepository : ITicketRepository
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From ticket Where id = @id", conn);
+        SqlCommand cmd = new SqlCommand("Select * From project1.ticket Where id = @id", conn);
         
         cmd.Parameters.AddWithValue("@id", id);
 
@@ -181,5 +181,34 @@ public class TicketRepository : ITicketRepository
         }
 
         throw new RecordNotFoundException("Could not find the User");
+    }
+    public List<ticket> GetAllTickets()
+    {
+        List<ticket> Users = new List<ticket>();
+        SqlConnection conn = _connectionFactory.GetConnection();
+
+        conn.Open();
+
+        SqlCommand cmd = new SqlCommand("Select * From project1.ticket", conn);
+        SqlDataReader reader = cmd.ExecuteReader();
+
+        while(reader.Read())
+        {
+            Users.Add
+            (new ticket
+            {
+                id = (int)reader["id"],
+                author = (string)reader["author_fk"],
+                resolver = (string)reader["resolver_fk"],
+                description = (string)reader["description"],
+                status = (string)reader["status"],
+                amount = (decimal)reader["amount"]
+            }
+            );
+        }
+        reader.Close();
+        conn.Close();
+
+        return Users;
     }
 }

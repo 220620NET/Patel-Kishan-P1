@@ -17,8 +17,8 @@ public class TicketController
     {
         try
         {
-            bool pass = _service.SubmitReimbursment(newTicket);
-            return Results.Accepted("/submit", _service.GetReimbursmentsByUserId(newTicket.author));
+            ticket pass = _service.SubmitReimbursment(newTicket);
+            return Results.Accepted("/submit", _service.GetReimbursmentsByUserId(newTicket.id));
         }
         catch (ResourceNotFoundException)
         {
@@ -29,12 +29,13 @@ public class TicketController
     {
         try
         {
-            bool pass = _service.UpdateReimbursment(exTicket);
+            ticket foundticket = _service.GetReimbursmentById(exTicket.id);
+            bool pass = (foundticket != null);
             if (pass)
             {
                 return Results.Accepted("/process", _service.GetReimbursmentById(exTicket.id));
             }
-            return Results.BadRequest($"The Ticket is no longer being deliberated. Status: {_service.GetReimbursmentById(exTicket.iD).status}");
+            return Results.BadRequest($"The Ticket is no longer being deliberated. Status: {_service.GetReimbursmentById(exTicket.id).status}");
         }
         catch (ResourceNotFoundException)
         {
@@ -53,7 +54,7 @@ public class TicketController
             return Results.NotFound($"No tickets currently {status}");
         }
     }
-    public IResult getTicketByAuthor(int authID)
+    public IResult GetTicketByAuthor(int authID)
     {
         try
         {
@@ -77,4 +78,17 @@ public class TicketController
             return Results.BadRequest($"There are no tickets with ID: {id}");
         }
     }
+    public IResult GetAllTickets()
+    {
+        try
+        {
+            List<ticket> allTickets = _service.GetAllReimbursments();
+            return Results.Accepted("/tickets", allTickets);
+        }
+        catch (ResourceNotFoundException)
+        {
+            return Results.NotFound("No users to return");
+        }
+    }
+
 }

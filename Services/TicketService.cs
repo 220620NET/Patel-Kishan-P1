@@ -78,4 +78,15 @@ public class TicketService
             throw new ResourceNotFoundException();
         }
     }
+    public List<ticket> GetAllReimbursments()
+    {
+        try
+        {
+            return _repo.GetAllTickets();
+        }
+        catch (ResourceNotFoundException)
+        {
+            throw new ResourceNotFoundException();
+        }
+    }
 }
