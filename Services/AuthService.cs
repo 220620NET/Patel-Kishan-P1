@@ -12,12 +12,11 @@ public class AuthService
     {
         _repo = repository;
     }
-    public User loginmeth(string userName,string password)
+    public User Login(string userName,string password)
     {
-        User foundUser;
         try
         {
-            creds = _repo.GetUserByUserName(userName);
+            User creds = _repo.GetUserByUserName(userName);
             if (creds.userName == "")
             {
                 throw new ResourceNotFoundException();
@@ -28,7 +27,7 @@ public class AuthService
             }
             else
             {
-                InvalidCredentialsException();
+                throw new InvalidCredentialsException();
                 }
         }
         catch (ResourceNotFoundException)
@@ -45,8 +44,8 @@ public class AuthService
     {
         try
         {
-            User check = _repo.GetUserByUserName(userName);
-            if (check.username == userName)
+            User check = _repo.GetUserByUserName(newUser.userName);
+            if (check.userName == newUser.userName)
             {
                 throw new UsernameNotAvailableException();
             }
@@ -54,9 +53,9 @@ public class AuthService
             {
                 User user = _repo.createUser(newUser);
             }
-            if (user.id > 0)
+            if (newUser.userID > 0)
             {
-                return User;
+                return newUser;
             }
             else
             {

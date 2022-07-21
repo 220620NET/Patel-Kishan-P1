@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.Sqlclient": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj",
+        "projectName": "Models",
+        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj",
+        "projectName": "WebAPI",
+        "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\kp289\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\WebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kp289\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Models\\Models.csproj"
+              },
+              "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\kp289\\Desktop\\Revature\\Patel-Kishan-P1\\Services\\Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

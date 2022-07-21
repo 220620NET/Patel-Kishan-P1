@@ -7,7 +7,8 @@ namespace Services;
 public class UserService
 {
     private readonly IUserRepository _repo;
-    public AuthService(IUserRepository repository)
+
+    public UserService(IUserRepository repository)
     {
         _repo = repository;
     }
@@ -16,18 +17,19 @@ public class UserService
     {
         try
         {
-            return IUserRepository.GetUserByUserName(userName);
+            return _repo.GetUserByUserName(userName);
         }
-        catch(UsernameNotAvailableException)
+        catch(ResourceNotFoundException)
         {
-            throw new UsernameNotAvailableException();
+            throw new ResourceNotFoundException();
         }
     }
     public User GetUserById(int id)
     {
         try
         {
-            return IUserRepository.GetUserByUserId(id);
+            User exUser =  _repo.GetUserById(id);
+            return exUser;
         }
         catch(IndexOutOfRangeException)
         {
@@ -38,7 +40,7 @@ public class UserService
     {
         try
         {
-            return IUserRepository.GetAllUsers();
+            return _repo.GetAllUsers();
         }
         catch(ResourceNotFoundException)
         {

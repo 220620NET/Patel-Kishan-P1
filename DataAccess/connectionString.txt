@@ -1,0 +1,1 @@
+Server=tcp:kpatel.database.windows.net,1433;Initial Catalog=kpatel;Persist Security Info=False;User ID=sqluser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

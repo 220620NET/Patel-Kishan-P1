@@ -4,20 +4,29 @@ using customExceptions;
 namespace Models;
 
 public class ticket {
-    private string iD {get; set;} = null!;
-    private string author {get; set;} = null!;
-    private string resolver {get; set;} = null!;
-    private string description {get; set;} = null!;
+    public int id {get; set;}
+    public string author {get; set;} = null!;
+    public string resolver {get; set;} = null!;
+    public string description {get; set;} = null!;
 
-    private string? Status {get; set;}
-    private decimal amount {get; set;}
+    public string? status {get; set;}
+    public decimal amount {get; set;}
 
-    public void User (string iD, string author, string resolver, string description, string Status, decimal amount){
-        this.iD = iD;
+    public ticket()
+    {
+        id = 0;
+        author = "";
+        resolver = "";
+        description = "";
+        status = "";
+        amount = 0;
+    }
+    public ticket (int id, string author, string resolver, string description, string status, decimal amount){
+        this.id = id;
         this.author = author;
         this.resolver = resolver;
         this.description = description;
-        this.Status = Status;
+        this.status = status;
         this.amount = amount;
     }
 }
