@@ -12,10 +12,13 @@ public class User {
     public string role {get; set;} = null!;
 
     public User() {
-        userID = 0;
         userName = "userName";
         password = "password";
-        role = "";
+    }
+     public User(string userName, string password, string role) {
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
     }
     public User (int userID, string userName, string password, string role){
         this.userID = userID;

@@ -18,7 +18,8 @@ public class TicketController
         try
         {
             ticket pass = _service.SubmitReimbursment(newTicket);
-            return Results.Accepted("/submit", _service.GetReimbursmentsByUserId(newTicket.id));
+            
+            return Results.Accepted("/submit", pass);
         }
         catch (ResourceNotFoundException)
         {
@@ -30,12 +31,12 @@ public class TicketController
         try
         {
             ticket foundticket = _service.GetReimbursmentById(exTicket.id);
-            bool pass = (foundticket != null);
-            if (pass)
-            {
-                return Results.Accepted("/process", _service.GetReimbursmentById(exTicket.id));
+            if (foundticket != null)
+            {   
+                return Results.Accepted("/process", _service.UpdateReimbursment(exTicket.status, exTicket.id));
             }
-            return Results.BadRequest($"The Ticket is no longer being deliberated. Status: {_service.GetReimbursmentById(exTicket.id).status}");
+            Console.WriteLine("JELLO");
+            return Results.BadRequest($"The Ticket is does not exist!!");
         }
         catch (ResourceNotFoundException)
         {
@@ -71,7 +72,7 @@ public class TicketController
         try
         {
             ticket exTicket = _service.GetReimbursmentById(id);
-            return Results.Accepted("/tickets/id/{id}, exTicket");
+            return Results.Accepted("/tickets/id/{id}", exTicket);
         }
         catch (ResourceNotFoundException)
         {

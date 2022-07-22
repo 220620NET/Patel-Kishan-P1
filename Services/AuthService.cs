@@ -52,14 +52,15 @@ public class AuthService
             else 
             {
                 User user = _repo.createUser(newUser);
-            }
-            if (newUser.userID > 0)
-            {
-                return newUser;
-            }
-            else
-            {
-                throw new NotImplementedException();
+                if (newUser.userID > 0)
+                {
+                    return newUser;
+                }
+                else
+                {
+                    Console.WriteLine(user.userID);
+                    throw new NotImplementedException();
+                }
             }
         }
         catch(UsernameNotAvailableException)

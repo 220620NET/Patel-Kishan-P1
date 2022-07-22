@@ -13,7 +13,7 @@ select * from project1.userlogin where username = 'joe123';
 select * from project1.ticket where author_fk = 'joe123';
 select * from project1.ticket where resolver_fk = 'ksp223';
 
-update project1.ticket set status = 'Rejected' where id = 1;
+update project1.ticket set status = 'Rejected' where id = 10;
 update project1.ticket set status = 'Rejected' where author_fk = 'joe123' and resolver_fk = 'ksp223';
 update project1.ticket set resolver_fk = 'pen3f' where author_fk = 'joe123' and resolver_fk = 'ksp223';
 

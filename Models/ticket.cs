@@ -9,8 +9,8 @@ public class ticket {
     public string resolver {get; set;} = null!;
     public string description {get; set;} = null!;
 
-    public string? status {get; set;}
-    public decimal amount {get; set;}
+    public string status {get; set;} = null!;
+    public double amount {get; set;}
 
     public ticket()
     {
@@ -21,7 +21,7 @@ public class ticket {
         status = "";
         amount = 0;
     }
-    public ticket (int id, string author, string resolver, string description, string status, decimal amount){
+    public ticket (int id, string author, string resolver, string description, string status, double amount){
         this.id = id;
         this.author = author;
         this.resolver = resolver;

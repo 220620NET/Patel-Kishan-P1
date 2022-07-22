@@ -19,7 +19,7 @@ public class UserRepository : IUserRepository
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From userlogin", conn);
+        SqlCommand cmd = new SqlCommand("Select * From project1.userlogin", conn);
         SqlDataReader reader = cmd.ExecuteReader();
 
         while(reader.Read())
@@ -27,16 +27,13 @@ public class UserRepository : IUserRepository
             Users.Add
             (new User
             {
-                userID = (int)reader["id"],
+                userID = (int)reader["userId"],
                 userName = (string)reader["username"],
                 password = (string)reader["password"],
                 role = (string)reader["user_role"]
             }
             );
         }
-        reader.Close();
-        conn.Close();
-
         return Users;
     }
 
@@ -46,7 +43,7 @@ public class UserRepository : IUserRepository
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From userlogin Where userId = @id", conn);
+        SqlCommand cmd = new SqlCommand("Select * From project1.userlogin Where userId = @id", conn);
         
         cmd.Parameters.AddWithValue("@id", id);
 
@@ -72,7 +69,7 @@ public class UserRepository : IUserRepository
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From userlogin Where username = @name", conn);
+        SqlCommand cmd = new SqlCommand("Select * From project1.userlogin Where username = @name", conn);
         
         cmd.Parameters.AddWithValue("@name", name);
 
@@ -89,16 +86,22 @@ public class UserRepository : IUserRepository
             };
         }
 
-        throw new RecordNotFoundException("Could not find the User with this name");
+        User user = new User();
+        return user;
     }
 
     public User createUser(User newUserToRegister)
     {
-        using SqlCommand cmd = new SqlCommand("insert into project1.userlogin (username, password, user_role) values (@username, @password, @user_role);", _connectionFactory.GetConnection());
+        using SqlCommand cmd = new SqlCommand("insert into project1.userlogin (username, password, user_role) output INSERTED.userId values (@username, @password, @user_role);", _connectionFactory.GetConnection());
 
         cmd.Parameters.AddWithValue("@username", newUserToRegister.userName);
         cmd.Parameters.AddWithValue("@password", newUserToRegister.password);
         cmd.Parameters.AddWithValue("@user_role", newUserToRegister.role);
+
+        cmd.Connection.Open();
+        int insertedId = (int) cmd.ExecuteScalar();
+
+        newUserToRegister.userID = insertedId;
 
         return newUserToRegister;
     }

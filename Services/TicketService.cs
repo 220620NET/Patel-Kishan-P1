@@ -34,17 +34,17 @@ public class TicketService
             throw new ResourceNotFoundException();
         }
     }
-    public ticket UpdateReimbursment(int val, int id)
-    {
-        try
-        {
-            return _repo.UpdateReimbursmentAmount(val, id);
-        }
-        catch (ResourceNotFoundException)
-        {
-            throw new ResourceNotFoundException();
-        }
-    }
+    // public ticket UpdateReimbursment(int val, int id)
+    // {
+    //     try
+    //     {
+    //         return _repo.UpdateReimbursmentAmount(val, id);
+    //     }
+    //     catch (ResourceNotFoundException)
+    //     {
+    //         throw new ResourceNotFoundException();
+    //     }
+    // }
     public ticket GetReimbursmentById(int id)
     {
         try

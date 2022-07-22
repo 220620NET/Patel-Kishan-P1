@@ -34,7 +34,7 @@ public class TicketRepository : ITicketRepository
                 resolver = (string)reader["resolver_fk"],
                 description = (string)reader["description"],
                 status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
+                amount = (double)reader["amount"]
 
             };
         }
@@ -62,12 +62,10 @@ public class TicketRepository : ITicketRepository
                 resolver = (string)reader["resolver_fk"],
                 description = (string)reader["description"],
                 status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
+                amount = (double)reader["amount"]
 
             });
         }
-        reader.Close();
-        conn.Close();
         return Tickets;
     }
     public List<ticket> GetReimbursmentsByStatus(string Status)
@@ -77,7 +75,7 @@ public class TicketRepository : ITicketRepository
 
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Select * From ticket Where status = @status", conn);
+        SqlCommand cmd = new SqlCommand("Select * From project1.ticket Where status = @status", conn);
         
         cmd.Parameters.AddWithValue("@status", Status);
 
@@ -92,96 +90,74 @@ public class TicketRepository : ITicketRepository
                 resolver = (string)reader["resolver_fk"],
                 description = (string)reader["description"],
                 status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
+                amount = (double)reader["amount"]
 
             });
         }
-        reader.Close();
-        conn.Close();
         return Tickets;
     }
 
     public ticket CreateReimbursment(ticket newTicketToRegister)
     {
-        using SqlCommand cmd = new SqlCommand("insert into project1.ticket (author_fk,resolver_fk,description,status,amount) values (@author_fk, @resolver_fk, @description, @status, @amount);", _connectionFactory.GetConnection());
+        using SqlCommand cmd = new SqlCommand("insert into project1.ticket (author_fk,resolver_fk,description,status,amount) output INSERTED.id values (@author_fk, @resolver_fk, @description, @status, @amount);", _connectionFactory.GetConnection());
 
         cmd.Parameters.AddWithValue("@author_fk", newTicketToRegister.author);
         cmd.Parameters.AddWithValue("@resolver_fk", newTicketToRegister.resolver);
         cmd.Parameters.AddWithValue("@description", newTicketToRegister.description);
-        cmd.Parameters.AddWithValue("@id", newTicketToRegister.id);
         cmd.Parameters.AddWithValue("@status", newTicketToRegister.status);
         cmd.Parameters.AddWithValue("@amount", newTicketToRegister.amount);
         
+        cmd.Connection.Open();
+        int insertedId =  (int) cmd.ExecuteScalar();
+
+        newTicketToRegister.id = insertedId;
         return newTicketToRegister;
     }
 
     public ticket UpdateReimbursmentString(string val,int id)
     {
-        List<string> stat = new List<string>(){"Rejected","Approved","Pending"};
         SqlConnection conn = _connectionFactory.GetConnection();
-
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Update project1.ticket set @key = @val where id = @id", conn);
+        SqlCommand cmd = new SqlCommand("Update project1.ticket set status = @val where id = @id", conn);
         
         cmd.Parameters.AddWithValue("@val", val);
         cmd.Parameters.AddWithValue("@id", id);
 
-        if (stat.Contains(val)){
-            cmd.Parameters.AddWithValue("@key", "status");
-        }
-        else{
-            cmd.Parameters.AddWithValue("@key", "resolver_fk");
-        }
-
         SqlDataReader reader = cmd.ExecuteReader();
 
-        while(reader.Read())
-        {
-            return new ticket
-            {
-                id = (int)reader["id"],
-                author = (string)reader["author_fk"],
-                resolver = (string)reader["resolver_fk"],
-                description = (string)reader["description"],
-                status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
-
-            };
-        }
-
-        throw new RecordNotFoundException("Could not find the User");
+        return GetReimbursmentById(id);
     }
 
-    public ticket UpdateReimbursmentAmount(decimal amount, int id)
-    {
-        SqlConnection conn = _connectionFactory.GetConnection();
+    // public ticket UpdateReimbursmentAmount(decimal amount, int id)
+    // {
+    //     SqlConnection conn = _connectionFactory.GetConnection();
 
-        conn.Open();
+    //     conn.Open();
 
-        SqlCommand cmd = new SqlCommand("Update project1.ticket set @key = @val where id = @id", conn);
+    //     SqlCommand cmd = new SqlCommand("Update project1.ticket set @key = @val where id = @id", conn);
         
-        cmd.Parameters.AddWithValue("@val", amount);
-        cmd.Parameters.AddWithValue("@id", id);
+    //     cmd.Parameters.AddWithValue("@val", amount);
+    //     cmd.Parameters.AddWithValue("@id", id);
 
-        SqlDataReader reader = cmd.ExecuteReader();
+    //     SqlDataReader reader = cmd.ExecuteReader();
 
-        while(reader.Read())
-        {
-            return new ticket
-            {
-                id = (int)reader["id"],
-                author = (string)reader["author_fk"],
-                resolver = (string)reader["resolver_fk"],
-                description = (string)reader["description"],
-                status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
+    //     while(reader.Read())
+    //     {
+    //         return new ticket
+    //         {
+    //             id = (int)reader["id"],
+    //             author = (string)reader["author_fk"],
+    //             resolver = (string)reader["resolver_fk"],
+    //             description = (string)reader["description"],
+    //             status = (string)reader["status"],
+    //             amount = (double)reader["amount"]
 
-            };
-        }
+    //         };
+    //     }
 
-        throw new RecordNotFoundException("Could not find the User");
-    }
+    //     throw new RecordNotFoundException("Could not find the User");
+    // }
     public List<ticket> GetAllTickets()
     {
         List<ticket> Users = new List<ticket>();
@@ -202,12 +178,10 @@ public class TicketRepository : ITicketRepository
                 resolver = (string)reader["resolver_fk"],
                 description = (string)reader["description"],
                 status = (string)reader["status"],
-                amount = (decimal)reader["amount"]
+                amount = (double)reader["amount"]
             }
             );
         }
-        reader.Close();
-        conn.Close();
 
         return Users;
     }

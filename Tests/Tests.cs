@@ -29,11 +29,12 @@ public class AuthServicesTesting
         
 
         mockedRepo.Setup(repo => repo.createUser(newUser)).Returns(newUser);
+        mockedRepo.Setup(repo => repo.GetUserByUserName(PassWrong.userName)).Throws(new ResourceNotFoundException());
 
 
         AuthService service = new AuthService(mockedRepo.Object);
 
-        Assert.Throws<NullReferenceException>(() => service.Login(PassWrong.userName, PassWrong.password));
+        Assert.Throws<ResourceNotFoundException>(() => service.Login(PassWrong.userName, PassWrong.password));
     }
     [Fact]
     public void UsernameDoesNotExist()

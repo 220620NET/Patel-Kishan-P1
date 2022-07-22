@@ -13,6 +13,7 @@ public class ConnectionFactory{
 
     public static ConnectionFactory GetInstance(string connectionString)
     {
+        Console.WriteLine($"string {connectionString}");
         if(_instance == null)
         {
             _instance = new ConnectionFactory(connectionString);
